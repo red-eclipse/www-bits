@@ -16,7 +16,7 @@
     font-size: 12px;
     line-height: 1.4em;
 }
-#markdown-toc {
+#markdown-toc, #general-toc {
     width: 240px;
     float: right;
     clear: both;
@@ -27,7 +27,8 @@
     background: rgb(8, 8, 8);
     margin-left: 16px;
     font-size: 12px;
-    line-height: 1.4em;
+    line-height: 1.1em;
+    font-weight: 600;
 }
 ul#markdown-toc {
     padding-left: 24px;
