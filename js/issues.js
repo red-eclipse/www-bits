@@ -189,9 +189,9 @@ function issues_create(item, iter) {
     }
     row.appendChild(title);
     row.innerHTML += '<td id="issues-t-comments" class="issues-center">' + item.comments + '</td>';
-    row.innerHTML += '<td id="issues-t-reactions" class="issues-center">' + item.reactions.total_count + '</td>';
+    row.innerHTML += '<td id="issues-t-reactions" class="issues-center hide-small">' + item.reactions.total_count + '</td>';
     row.innerHTML += '<td id="issues-t-author" class="issues-center">' + item.user.login + '</td>';
-    row.innerHTML += '<td id="issues-t-created" class="issues-time issues-center"><time class="timeago" datetime="' + item.created_at + '">' + issues_date(item.created_at) + '</time></td>';
+    row.innerHTML += '<td id="issues-t-created" class="issues-time issues-center hide-small"><time class="timeago" datetime="' + item.created_at + '">' + issues_date(item.created_at) + '</time></td>';
     row.innerHTML += '<td id="issues-t-updated" class="issues-time issues-center"><time class="timeago" datetime="' + item.updated_at + '">' + issues_date(item.updated_at) + '</time></td>';
     return row;
 }
@@ -263,9 +263,9 @@ function issues_build() {
         hrow.innerHTML = '<th id="issues-h-number" class="issues-center">ID</th>';
         hrow.innerHTML += '<th id="issues-h-title" class="issues-left">Title</th>';
         hrow.innerHTML += '<th id="issues-h-comments" class="issues-center"><span class="far fa-comment fa-fw" aria-hidden="true"></span></th>';
-        hrow.innerHTML += '<th id="issues-h-reactions" class="issues-center"><span class="far fa-meh fa-fw" aria-hidden="true"></span></th>';
+        hrow.innerHTML += '<th id="issues-h-reactions" class="issues-center hide-small"><span class="far fa-meh fa-fw" aria-hidden="true"></span></th>';
         hrow.innerHTML += '<th id="issues-h-author" class="issues-center">Author</th>';
-        hrow.innerHTML += '<th id="issues-h-created" class="issues-center">Created</th>';
+        hrow.innerHTML += '<th id="issues-h-created" class="issues-center hide-small">Created</th>';
         hrow.innerHTML += '<th id="issues-h-updated" class="issues-center">Updated</th>';
         hbody.innerHTML = "";
         for(var i = 0; i < issues_data.length; i++) {
