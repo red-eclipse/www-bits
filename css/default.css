@@ -46,7 +46,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: Orbitron, sans-serif;
     font-weight: 900;
     letter-spacing: 0.02em;
-    text-shadow: -1px -1px 5px rgb(255, 0, 0);
+    text-shadow: -1px -1px 6px rgb(255, 0, 0);
 }
 h1 > svg, h2 > svg, h3 > svg, h4 > svg, h5 > svg, h6 > svg, h1 > a > svg, h2 > a > svg, h3 > a > svg, h4 > a > svg, h5 > a > svg, h6 > a > svg {
     -webkit-filter: drop-shadow(-1px -1px 5px rgb(255, 0, 0));
@@ -133,7 +133,7 @@ dt, th {
     font-weight: 600;
     text-shadow: -1px -1px 5px rgb(255, 0, 0);
 }
-dt > svg, th > svg {
+dt > svg, th > svg, span > svg {
     -webkit-filter: drop-shadow( -1px -1px 5px rgb(255, 0, 0));
     filter: drop-shadow(-1px -1px 5px rgb(255, 0, 0));
 }
