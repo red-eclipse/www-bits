@@ -21,11 +21,11 @@ body {
 a, a:link, a:visited {
     color: rgb(255, 128, 128);
     text-decoration: none;
-    text-shadow: none;
+    text-shadow: -1px -1px 4px rgb(255, 0, 0);
 }
 a:hover, a:active {
     color: rgb(255, 240, 240);
-    text-shadow: -1px -1px 6px rgb(255, 0, 0);
+    text-shadow: -1px -1px 4px rgb(255, 240, 240);
 }
 #navbar {
     width: 900px;
@@ -136,6 +136,10 @@ a:hover, a:active {
 .footer a, .footer a:link, .footer a:visited {
     font-weight: 600;
     color: rgb(255, 96, 96);
+}
+.footer a:hover, .footer a:active {
+    color: rgb(255, 240, 240);
+    text-shadow: -1px -1px 4px rgb(255, 240, 240);
 }
 .carousel-control {
     width: 6%;
