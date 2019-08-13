@@ -96,12 +96,12 @@ var user_data = null;
 var user_login = null;
 var user_cookie = '0';
 var user_nologin = false;
-OAuth.initialize('p7dOPzuUbL6qWAyxu73egl5DJYA');
-OAuth.setOAuthdURL('https://hq.redeclipse.net:6284');
+//OAuth.initialize('p7dOPzuUbL6qWAyxu73egl5DJYA');
+//OAuth.setOAuthdURL('https://hq.redeclipse.net:6284');
 
 function user_oauth(setup, src) {
-    user_nologin = true;
-    OAuth.redirect('github', { cache: true }, sitedata.url + pagedata.permalink + "#");
+    //user_nologin = true;
+    //OAuth.redirect('github', { cache: true }, sitedata.url + pagedata.permalink + "#");
 }
 
 function user_failed(err) {
@@ -138,7 +138,7 @@ function user_callback(err, result) {
         });
     }
 }
-OAuth.callback('github', { cache: true }, user_callback);
+//OAuth.callback('github', { cache: true }, user_callback);
 
 // Issues API
 var issues_reactions = [ "+1", "-1", "laugh", "hooray", "confused", "heart" ];
@@ -150,19 +150,19 @@ function issues_setup()
     var url = window.location.hash, idx = url.indexOf('#');
     if(idx >= 0) {
         var str = url.substring(idx + 1);
-        if(str == 'oauthio=cache:github' || str == '&oauthio=cache:github') {
-            user_nologin = true;
-            issue_num = 0;
-            window.location.hash = '';
-        }
-        else {
+        //if(str == 'oauthio=cache:github' || str == '&oauthio=cache:github') {
+        //    user_nologin = true;
+        //    issue_num = 0;
+        //    window.location.hash = '';
+        //}
+        //else {
             var old = issue_num;
             issue_num = parseInt(str);
             if(issue_num != old) {
                 issues_comments = [];
                 issues_comments_page = 1;
             }
-        }
+        //}
     }
     else {
         issue_num = 0;
@@ -404,7 +404,7 @@ function issues_remain(remain, rate) {
         var more = getelem('issues-rate');
         if(more) {
             more.innerHTML = 'Rate limit: ' + remain + '/' + rate;
-            more.title = user_login != null ? 'You have the full authenticated rate limit.' : 'Login with GitHub to increase your rate limit.';
+            //more.title = user_login != null ? 'You have the full authenticated rate limit.' : 'Login with GitHub to increase your rate limit.';
         }
     }
 }
@@ -430,12 +430,12 @@ $(document).ready(function ($) {
     issues_setup();
     if(user_nologin == false) {
         console.log('cookie: ', user_cookie);
-        if(user_cookie == '1') {
-            user_oauth(true);
-        }
-        else {
+        //if(user_cookie == '1') {
+        //    user_oauth(true);
+        //}
+        //else {
             issues_script(issues_location, 'issues-script', issues_data_page);
-        }
+        //}
     }
 });
 
