@@ -1,6 +1,11 @@
 @charset "utf-8";
 body {
-    background: #340201 url(/bits/bg2.jpg) no-repeat center top;
+    background-color: #340201;
+    background-image: url(/bits/background.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top center;
+    background-size: cover;
     color: rgb(255, 255, 255);
     font-size: 14px;
     font-weight: 400;

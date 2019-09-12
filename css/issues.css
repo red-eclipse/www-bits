@@ -14,14 +14,22 @@
 .issues-right {
     text-align: right;
 }
+.issues-labels {
+    display: block;
+    margin: 0;
+    padding: 4px 0px 0px 0px;
+}
 .issues-label {
     margin: 0;
     padding: 0px 4px 2px 4px;
-    font-size: 75%;
+    color: rgb(255, 255, 255);
+    font-size: 70%;
+    font-weight: 600;
     white-space: nowrap;
     border-radius: 4px; 
     border: 1px solid rgb(255, 255, 255);
     vertical-align: top;
+    text-decoration: none;
 }
 #issues-front, #issues-table, #issues-view, #issues-more {
     width: 100%;

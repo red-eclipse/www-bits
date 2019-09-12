@@ -5,6 +5,7 @@ var issues_current = null;
 var issues_comments = [];
 var issues_comments_page = 1;
 var issues_location = sitedata.locs.api + '/repos/' + sitedata.organisation + '/' + pagedata.issues.repository + '/issues?state=' + pagedata.issues.sort.state + '&sort=' + pagedata.issues.sort.by + '&direction=' + pagedata.issues.sort.direction + '&callback=issues';
+var issues_labels_location = sitedata.locs.ref + '/' + sitedata.organisation + '/' + pagedata.issues.repository + '/labels/';
 
 // Helpers
 Number.prototype.zeropad= function(len) {
@@ -183,14 +184,18 @@ function issues_create(item, iter) {
     title.id = 'issues-t-title';
     title.className = 'issues-left';
     title.innerHTML += '<a id="issues-t-url" class="issues-left" href="#' + item.number + '">' + item.title + '</a>';
-    for(var j = 0; j < item.labels.length; j++) {
-        var label = item.labels[j];
-        title.innerHTML += ' <span id="issues-t-label" class="issues-label" style="border-color: #' + label.color + ';">' + label.name + '</span>';
+    if(item.labels.length > 0) {
+        title.innerHTML += '<div id="issues-t-labels" class="issues-labels">';
+        for(var j = 0; j < item.labels.length; j++) {
+            var label = item.labels[j];
+            title.innerHTML += ' <a id="issues-t-label" class="issues-label" style="border-color: #' + label.color + ';" href="' + issues_labels_location + encodeURIComponent(label.name) + '" target="_blank">' + label.name + '</a>';
+        }
+        title.innerHTML += '</div>';
     }
     row.appendChild(title);
     row.innerHTML += '<td id="issues-t-comments" class="issues-center">' + item.comments + '</td>';
     row.innerHTML += '<td id="issues-t-reactions" class="issues-center hide-small">' + item.reactions.total_count + '</td>';
-    row.innerHTML += '<td id="issues-t-author" class="issues-center">' + item.user.login + '</td>';
+    row.innerHTML += '<td id="issues-t-author" class="issues-center"><a id="issues-t-author-link" class="issues-center" href="' + item.user.html_url + '" target="_blank">' + item.user.login + '</a></td>';
     row.innerHTML += '<td id="issues-t-created" class="issues-time issues-center hide-small"><time class="timeago" datetime="' + item.created_at + '">' + issues_date(item.created_at) + '</time></td>';
     row.innerHTML += '<td id="issues-t-updated" class="issues-time issues-center"><time class="timeago" datetime="' + item.updated_at + '">' + issues_date(item.updated_at) + '</time></td>';
     return row;
@@ -209,7 +214,7 @@ function issues_view(item, hbody, hrow) {
         reactions = xtra.makechild('span', 'issues-h-comments-xtra-reactions', 'issues-right');
     for(var j = 0; j < item.labels.length; j++) {
         var label = item.labels[j];
-        labels.innerHTML += ' <span id="issues-t-label" class="issues-top issues-label" style="border-color: #' + label.color + ';">' + label.name + '</span>';
+        labels.innerHTML += ' <a id="issues-t-label" class="issues-top issues-label" style="border-color: #' + label.color + ';" href="' + issues_labels_location + encodeURIComponent(label.name) + '" target="_blank">' + label.name + '</a>';
     }
     if(item.reactions.total_count > 0) {
         for(var j = 0; j < issues_reactions.length; j++) {
