@@ -324,7 +324,7 @@ function issues_build_comments() {
     if(issue_num <= 0 || issues_current == null) return;
     if(issues_comments != null && issues_comments.length > 0) {
         var hbody = getelem('issues-body');
-        for(var i = 0; i < issues_comments.length; i++) {
+        for(var i = Math.max(issues_comments_page-1, 0)*pagedata.issues.perpage; i < issues_comments.length; i++) {
             issues_view_comment(issues_comments[i], i+1, hbody);
         }
         if(issues_comments_page > 0) {
