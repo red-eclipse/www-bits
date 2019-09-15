@@ -322,7 +322,7 @@ function issues_build_comments() {
     var loading = getelem('issues-t-load');
     if(loading != null) loading.remove();
     if(issue_num <= 0 || issues_current == null) return;
-    if(issues_comments != null && issues_comments.length > 0) {
+    if(issues_comments != null) {
         var hbody = getelem('issues-body');
         for(var i = 0; i < issues_comments.length; i++) {
             issues_view_comment(issues_comments[i], i+1, hbody);
@@ -339,6 +339,10 @@ function issues_build_comments() {
                 }
             }
         }
+    }
+    else {
+        var more = getelem('issues-h-more');
+        if(more) more.style.display = 'none';
     }
     var view = getelem('issues-morebody');
     if(view) {
