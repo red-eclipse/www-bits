@@ -351,7 +351,7 @@ function issues_build_comments() {
             head = hrow.makechild('td', 'issues-t-reply-info', 'issues-center'),
             span = head.makechild('span', 'issues-t-reply-span', 'issues-left');
         span.innerHTML = '<a href="' + issues_current.html_url + '#show_issue" class="issues-left" target="_blank">View on GitHub</a>'
-        span.innerHTML += ' | <a href="' + issues_current.html_url + '#partial-timeline-marker" class="issues-left" target="_blank">Reply on GitHub</a>';
+        span.innerHTML += ' | <a href="' + issues_current.html_url + '#issue-comment-box" class="issues-left" target="_blank">Reply on GitHub</a>';
     }
     jQuery("time.timeago").timeago();
 }
